@@ -9,7 +9,7 @@
         <div class="landing">
           <div class="meetup"><a href="https://www.meetup.com/Hamar-Digirama">meetup.com/hamar-digirama</a></div>
           <h1 class="title">Hamar Digirama</h1>
-          <h2 class="coming-up">Neste meetup : <span class="date">23. august</span></h2>
+          <h2 class="coming-up">Neste meetup : <span class="date">22. august</span></h2>
         </div>
       </flat-surface-shader>
     </no-ssr>
