@@ -10,6 +10,7 @@
           <div class="meetup"><a href="https://www.meetup.com/Hamar-Digirama">meetup.com/hamar-digirama</a></div>
           <h1 class="title">Hamar Digirama</h1>
           <h2 class="coming-up">Neste meetup : <span class="date">{{upcomingEventDate}}</span></h2>
+          <h3 class="coming-up"><span class="time">{{upcomingEventTime}}</span></h3>
         </div>
       </flat-surface-shader>
     </no-ssr>
@@ -56,7 +57,7 @@
     }  
   }
 
-  .date {
+  .date, .time {
     color: #E5FD90;
     text-shadow: 2px 2px 2px #222;
     font-size: 10vw;
@@ -64,6 +65,15 @@
 
     @media (min-width: 600px) {
       font-size: 5vw;
+    }  
+  }
+
+  .time {
+    text-transform: none;
+    font-size: 6vw;
+
+    @media (min-width: 600px) {
+      font-size: 3vw;
     }  
   }
 </style>
@@ -75,9 +85,11 @@
       const events = await app.$axios.$get('https://api.meetup.com/Hamar-Digirama/events');
       const nextUpcomingEvent = events.filter(event => event.status === 'upcoming').pop();
       const upcomingEventDate = nextUpcomingEvent ? new Date(nextUpcomingEvent.local_date).toLocaleDateString() : 'TBA';
+      const upcomingEventTime = nextUpcomingEvent ? `kl. ${nextUpcomingEvent.local_time}` : '';
       return {
         segments: 9,
-        upcomingEventDate
+        upcomingEventDate,
+        upcomingEventTime
       }
     },
     mounted() {
