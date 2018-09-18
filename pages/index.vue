@@ -9,7 +9,7 @@
         <div class="landing">
           <div class="meetup"><a href="https://www.meetup.com/Hamar-Digirama">meetup.com/hamar-digirama</a></div>
           <h1 class="title">Hamar Digirama</h1>
-          <h2 class="coming-up">Neste meetup : <span class="date">19. september</span></h2>
+          <h2 class="coming-up">Neste meetup : <span class="date">{{upcomingEventDate}}</span></h2>
         </div>
       </flat-surface-shader>
     </no-ssr>
@@ -71,9 +71,15 @@
 
 <script>
   export default {
-    asyncData: () => ({
-      segments: 9
-    }),
+    async asyncData({ app }) {
+      const events = await app.$axios.$get('https://api.meetup.com/Hamar-Digirama/events');
+      const nextUpcomingEvent = events.filter(event => event.status === 'upcoming').pop();
+      const upcomingEventDate = nextUpcomingEvent ? nextUpcomingEvent.local_date : 'TBA';
+      return {
+        segments: 9,
+        upcomingEventDate
+      }
+    },
     mounted() {
       this.segments = Math.round(window.innerWidth / 135)
       

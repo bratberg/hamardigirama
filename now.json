@@ -1,3 +1,7 @@
 {
-  "name": "hamardigirama"
+  "name": "hamardigirama",
+  "alias": ["hamardigirama.no"],
+  "env": {
+    "MEETUP_API_TOKEN": "@meetup-api-token"
+  }
 }
