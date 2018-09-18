@@ -74,7 +74,7 @@
     async asyncData({ app }) {
       const events = await app.$axios.$get('https://api.meetup.com/Hamar-Digirama/events');
       const nextUpcomingEvent = events.filter(event => event.status === 'upcoming').pop();
-      const upcomingEventDate = nextUpcomingEvent ? nextUpcomingEvent.local_date : 'TBA';
+      const upcomingEventDate = nextUpcomingEvent ? new Date(nextUpcomingEvent.local_date).toLocaleDateString() : 'TBA';
       return {
         segments: 9,
         upcomingEventDate
