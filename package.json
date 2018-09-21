@@ -23,6 +23,7 @@
   "homepage": "https://hamardigirama.no",
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
+    "nuxt": "^2.0.0",
     "nuxt-edge": "latest",
     "vue-flat-surface-shader": "^1.0.5"
   },
