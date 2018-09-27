@@ -8,7 +8,9 @@
         :mesh="{ segments, slices: 7, width: 1.8, height: 1.8, speed: 0.0003 }">
         <div class="landing">
           <div class="meetup">
-            <a href="https://www.meetup.com/Hamar-Digirama">meetup.com/hamar-digirama</a>
+            <a href="https://www.meetup.com/Hamar-Digirama">
+              meetup.com/hamar-digirama
+            </a>
           </div>
           <h1 class="title">Hamar Digirama</h1>
           <h2 class="coming-up">Neste meetup:</h2>
@@ -50,7 +52,7 @@
   .meetup a {
     display: block;
     font-size: 4vw;
-    margin-bottom: 2vw;
+    margin: 0 0 2vw 0;
     text-align: center;
     text-transform: uppercase;
     font-weight: 800;
