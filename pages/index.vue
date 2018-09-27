@@ -48,7 +48,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .meetup a {
     display: block;
     font-size: 4vw;

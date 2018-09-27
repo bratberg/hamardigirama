@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="sass">
  * {
       margin: 0;
       padding: 0;
@@ -53,7 +53,7 @@
     }
 </style>
 
-<style lang="scss">
+<style lang="sass">
  
 
   body {
