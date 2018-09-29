@@ -8,6 +8,9 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'description', content: 'Hamar Digirama er et uformelt faglig samlingspunkt for utviklere, designere og andre som brenner for mennesker og teknologi i Hamarområdet. Kom på foredrag og workshops (eller hold en sjøl!) ta en pils og kast deg med i diskusjoner om design, programmering, prosesser, brukeropplevelse, back-end, visuell kommunikasjon, rammeverk, front-end, – og alt digitalt!' }
+    ],
+    noscript: [
+      { innerHTML: 'This website is more fun with JavaScript enabled.' }
     ]
   },
   manifest: {
