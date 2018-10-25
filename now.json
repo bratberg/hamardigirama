@@ -2,6 +2,7 @@
   "name": "hamardigirama",
   "alias": ["hamardigirama.no"],
   "env": {
-    "MEETUP_API_TOKEN": "@meetup-api-token"
+    "MEETUP_API_TOKEN": "@meetup-api-token",
+    "GOOGLE_ANALYTICS_ID": "@google-analytics-id"
   }
 }

@@ -20,9 +20,13 @@ export default {
   },
   plugins: [{ src: '~plugins/vue-flat-surface-shader.js', ssr: false }],
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/axios',  
+    '@nuxtjs/pwa',
+    '@nuxtjs/google-analytics'
   ],
+  'google-analytics': {
+    id: process.env.GOOGLE_ANALYTICS_ID
+  },
   env: {
     meetupApiToken: process.env.MEETUP_API_TOKEN
   }
