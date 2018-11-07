@@ -12,7 +12,7 @@
               meetup.com/hamar-digirama
             </a>
           </div>
-          <h1 class="title">Hamar Digirama</h1>
+          <h1 class="title">Hamar Digirama!</h1>
           <h2 class="coming-up">Neste meetup:</h2>
           <h2 class="coming-up"><span class="name">{{upcomingEventName}}</span></h2>
           <h2 class="coming-up"><span class="date">{{upcomingEventDate}}</span></h2>
