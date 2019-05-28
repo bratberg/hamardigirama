@@ -1,8 +1,16 @@
 {
+  "version": 2,
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  
   "name": "hamardigirama",
   "alias": ["hamardigirama.no"],
   "env": {
     "MEETUP_API_TOKEN": "@meetup-api-token",
     "GOOGLE_ANALYTICS_ID": "@google-analytics-id"
+  },
+  "build": {
+    "env": {
+      "GOOGLE_ANALYTICS_ID": "@google-analytics-id"
+    }
   }
 }
