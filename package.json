@@ -4,8 +4,9 @@
   "description": "",
   "main": "nuxt.config.js",
   "scripts": {
-    "dev": "DEBUG=nuxt:* nuxt dev",
+    "dev": "nuxt",
     "build": "NODE_ENV=production nuxt build",
+    "now-build": "NODE_ENV=production nuxt generate",
     "start": "NODE_ENV=production nuxt start"
   },
   "repository": {
@@ -23,7 +24,7 @@
     "@nuxtjs/axios": "^5.3.1",
     "@nuxtjs/google-analytics": "^2.0.2",
     "@nuxtjs/pwa": "^2.6.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.6.0",
     "vue-flat-surface-shader": "^1.0.5"
   },
   "devDependencies": {
