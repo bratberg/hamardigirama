@@ -27,7 +27,7 @@
   export default {
     async asyncData({ app }) {
       const events = await app.$axios.$get('https://api.meetup.com/Hamar-Digirama/events');
-      const nextUpcomingEvent = events.filter(event => event.status === 'upcoming').reverse().pop();
+      const nextUpcomingEvent = events.filter(event => event.status === 'upcoming').pop();
       const upcomingEventName = nextUpcomingEvent ? `${nextUpcomingEvent.name}`.replace('Data', 'Data­') : '';
       const upcomingEventDate = nextUpcomingEvent ? nextUpcomingEvent.local_date.split('-').reverse().join('.') : 'TBA';
       const upcomingEventTime = nextUpcomingEvent ? `kl. ${nextUpcomingEvent.local_time}` : '';
