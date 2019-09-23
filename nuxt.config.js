@@ -25,7 +25,8 @@ export default {
     '@nuxtjs/google-analytics'
   ],
   'google-analytics': {
-    id: process.env.GOOGLE_ANALYTICS_ID
+    id: process.env.GOOGLE_ANALYTICS_ID,
+    dev: false
   },
   env: {
     meetupApiToken: process.env.MEETUP_API_TOKEN
