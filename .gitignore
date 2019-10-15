@@ -1,7 +1,10 @@
-node_modules/*
+node_modules
 *.log
 
-.nuxt/*
-dist/*
+.nuxt
+dist
 
 sw.*
+
+.env
+.env.build

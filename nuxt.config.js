@@ -30,5 +30,8 @@ export default {
   },
   env: {
     meetupApiToken: process.env.MEETUP_API_TOKEN
+  },
+  generate: {
+    dir: 'public'
   }
-} 
+}

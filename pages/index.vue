@@ -24,27 +24,40 @@
 </template>
 
 <script>
+  const getUpcomingEventDetails = (events) => {
+    const nextUpcomingEvent = events.pop();
+    const upcomingEventName = nextUpcomingEvent ? `${nextUpcomingEvent.name}`.replace('Data', 'Data­') : '';
+    const upcomingEventDate = nextUpcomingEvent ? nextUpcomingEvent.local_date.split('-').reverse().join('.') : 'TBA';
+    const upcomingEventTime = nextUpcomingEvent ? `kl. ${nextUpcomingEvent.local_time}` : '';
+    return {
+      upcomingEventName,
+      upcomingEventDate,
+      upcomingEventTime
+    }
+  };
   export default {
     async asyncData({ app }) {
       const events = await app.$axios.$get('https://api.meetup.com/Hamar-Digirama/events?status=upcoming&desc=true');
-      const nextUpcomingEvent = events.pop();
-      const upcomingEventName = nextUpcomingEvent ? `${nextUpcomingEvent.name}`.replace('Data', 'Data­') : '';
-      const upcomingEventDate = nextUpcomingEvent ? nextUpcomingEvent.local_date.split('-').reverse().join('.') : 'TBA';
-      const upcomingEventTime = nextUpcomingEvent ? `kl. ${nextUpcomingEvent.local_time}` : '';
+      const upcomingEventDetails = getUpcomingEventDetails(events);
       return {
         segments: 9,
-        upcomingEventName,
-        upcomingEventDate,
-        upcomingEventTime
+        ...upcomingEventDetails
       }
     },
     mounted() {
       this.segments = Math.round(window.innerWidth / 135)
+      this.$axios.$get(location.origin + '/api/meetup/upcomingEvents').then(events => {
+        const { upcomingEventName, upcomingEventDate, upcomingEventTime } = getUpcomingEventDetails(events);
+        console.log({upcomingEventName})
+        this.upcomingEventName = upcomingEventName;
+        this.upcomingEventDate = upcomingEventDate;
+        this.upcomingEventTime = upcomingEventTime;
+      }).catch(error => console.error(error))
       
       window.addEventListener('resize', () => {
         this.segments = Math.round(window.innerWidth / 135)
       })
-    }
+    },
   }
 </script>
 
@@ -64,7 +77,7 @@
 
   .title {
     margin: 0;
-    text-shadow: 2px 2px 8px #222;
+    // text-shadow: 2px 2px 0px #fff;
     text-align: center;
     font-size: 15vw;
     font-weight: 800;
