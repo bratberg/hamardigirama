@@ -14,9 +14,9 @@
           </div>
           <h1 class="title">Hamar Digirama</h1>
           <h2 class="coming-up">Neste meetup:</h2>
-          <h2 class="coming-up"><span class="name">{{upcomingEventName}}</span></h2>
-          <h2 class="coming-up"><span class="date">{{upcomingEventDate}}</span></h2>
-          <h3 class="coming-up"><span class="time">{{upcomingEventTime}}</span></h3>
+          <h2 class="coming-up"><span class="name" v-html="upcomingEvent.name || '&nbsp;'"></span></h2>
+          <h2 class="coming-up"><span class="date" v-html="upcomingEvent.date || '&nbsp;'"></span></h2>
+          <h3 class="coming-up"><span class="time" v-html="upcomingEvent.time || '&nbsp;'">{{upcomingEvent.time}}</span></h3>
         </div>
       </flat-surface-shader> 
     </no-ssr>
@@ -26,32 +26,27 @@
 <script>
   const getUpcomingEventDetails = (events) => {
     const nextUpcomingEvent = events.pop();
-    const upcomingEventName = nextUpcomingEvent ? `${nextUpcomingEvent.name}`.replace('Data', 'Data­') : '';
-    const upcomingEventDate = nextUpcomingEvent ? nextUpcomingEvent.local_date.split('-').reverse().join('.') : 'TBA';
-    const upcomingEventTime = nextUpcomingEvent ? `kl. ${nextUpcomingEvent.local_time}` : '';
+    const name = nextUpcomingEvent ? `${nextUpcomingEvent.name}`.replace('Data', 'Data­') : 'TBA';
+    const date = nextUpcomingEvent ? nextUpcomingEvent.local_date.split('-').reverse().join('.') : '';
+    const time = nextUpcomingEvent ? `kl. ${nextUpcomingEvent.local_time}` : '';
     return {
-      upcomingEventName,
-      upcomingEventDate,
-      upcomingEventTime
+      name,
+      date,
+      time
     }
   };
   export default {
-    async asyncData({ app }) {
-      const events = await app.$axios.$get('https://api.meetup.com/Hamar-Digirama/events?status=upcoming&desc=true');
-      const upcomingEventDetails = getUpcomingEventDetails(events);
+    asyncData({ app }) {
       return {
         segments: 9,
-        ...upcomingEventDetails
+        upcomingEvent: {}
       }
     },
     mounted() {
       this.segments = Math.round(window.innerWidth / 135)
       this.$axios.$get(location.origin + '/api/meetup/upcomingEvents').then(events => {
-        const { upcomingEventName, upcomingEventDate, upcomingEventTime } = getUpcomingEventDetails(events);
-        console.log({upcomingEventName})
-        this.upcomingEventName = upcomingEventName;
-        this.upcomingEventDate = upcomingEventDate;
-        this.upcomingEventTime = upcomingEventTime;
+        const upcomingEvent = getUpcomingEventDetails(events);
+        this.upcomingEvent = upcomingEvent;
       }).catch(error => console.error(error))
       
       window.addEventListener('resize', () => {
