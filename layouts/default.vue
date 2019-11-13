@@ -83,6 +83,10 @@
 
 
 <script>
+import '~/js/console-image.js';
+if (typeof window !== 'undefined') {
+  console.image('https://i.pinimg.com/originals/27/d9/89/27d989c104fa89b3ba2149e959900b57.jpg')
+}
 export default {
   asyncData() {
     return {}
