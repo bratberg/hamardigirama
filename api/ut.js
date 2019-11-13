@@ -1,3 +1,9 @@
-export default function (req, res) {
-  res.send(['Heim', 'Gullkorn', 'Olearys'][Math.floor(Math.random() * 3)]);
+export default function ({ query = {} }, res) {
+  const v = (query.vannhull || "Heim, Gullkorn, O'Learys")
+    .replace(/\s/g, '')
+    .split(',');
+
+  res.json({
+    dagens_vannhull: v[Math.floor(Math.random() * v.length)]
+  })
 }
