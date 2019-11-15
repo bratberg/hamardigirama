@@ -7,11 +7,6 @@
         :light="{ ambient: '#B7309D', diffuse: '#f38adf', draw: false, speed: 0.000003, dampening: 0.25, gravity: 800 }" 
         :mesh="{ segments, slices: 7, width: 1.8, height: 1.8, speed: 0.0003 }">
         <div class="landing">
-          <div class="meetup">
-            <a href="https://www.meetup.com/Hamar-Digirama">
-              meetup.com/hamar-digirama
-            </a>
-          </div>
           <h1 class="title">Hamar Digirama</h1>
           <h2 class="coming-up">Neste meetup:</h2>
           <h2 class="coming-up"><span class="name" v-html="upcomingEvent.name || '&nbsp;'"></span></h2>
