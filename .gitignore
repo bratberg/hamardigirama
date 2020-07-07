@@ -8,3 +8,4 @@ sw.*
 
 .env
 .env.build
+.vercel

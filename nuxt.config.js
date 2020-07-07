@@ -33,6 +33,6 @@ export default {
   },
   mode: 'spa',
   generate: {
-    dir: 'public'
+    dir: 'dist'
   }
 }

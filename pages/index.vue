@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <no-ssr>
+    <client-only>
       <flat-surface-shader
         class="shader"
         type="canvas" 
@@ -19,7 +19,7 @@
           <h3 class="coming-up"><span class="time" v-html="upcomingEvent.time || '&nbsp;'">{{upcomingEvent.time}}</span></h3>
         </div>
       </flat-surface-shader> 
-    </no-ssr>
+    </client-only>
   </div>
 </template>
 
