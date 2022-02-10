@@ -27,7 +27,7 @@
     "vue-flat-surface-shader": "^1.0.5"
   },
   "devDependencies": {
-    "node-sass": "^4.8.3",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.0.1"
   }
 }
